@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -12,7 +13,7 @@ export class Tab1Page {
   cantCombos: number;
   cantProductus: number;
 
-  constructor()
+  constructor(private vibration: Vibration)
   {
     this.cantCombos = 1;
     this.cantProductus = 2;
@@ -24,7 +25,7 @@ export class Tab1Page {
   // Agrega el digito seleccionado a la calculadora
   addNumber(val:number)
   {
-    console.log(val);
+    this.vibration.vibrate(1000);
     if (this.price == '0') this.price = val.toString();
     else this.price = this.price + val;
   }
@@ -39,6 +40,11 @@ export class Tab1Page {
   clearInput() : void
   {
     this.price = '';
+  }
+
+  formatedPrice()
+  {
+    return this.price.replace('.', ',');
   }
 
   // Funcion que devuelve el precio del segundo producto, con el descuento aplicado
@@ -68,7 +74,7 @@ export class Tab1Page {
   // Calcula cual fue el ahorro total en la compra
   ahorroTotal(): number
   {
-    return parseFloat(this.price) - (this.precioSegundoProducto() * this.cantCombos);
+    return (parseFloat(this.price) - (this.precioSegundoProducto())) * this.cantCombos;
   }
 
   // Calcula el precio final sin el descuento
