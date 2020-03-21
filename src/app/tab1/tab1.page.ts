@@ -24,8 +24,9 @@ export class Tab1Page {
   // Agrega el digito seleccionado a la calculadora
   addNumber(val:number)
   {
+    console.log(val);
     if (this.price == '0') this.price = val.toString();
-    this.price = this.price + val;
+    else this.price = this.price + val;
   }
 
   // Funcion que elimina el ultimo numero del precio

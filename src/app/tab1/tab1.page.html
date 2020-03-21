@@ -7,54 +7,75 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
     <ion-header collapse="condense">
         <ion-toolbar>
             <ion-title size="large">2da Unidad</ion-title>
         </ion-toolbar>
     </ion-header>
+
+    <ion-card-header>
+        <ion-card-subtitle>Precio del Producto</ion-card-subtitle>
+        <ion-card-title>{{price}}</ion-card-title>
+    </ion-card-header>
+    
     <ion-segment>
-        <ion-input type="number" placeholder='Precio Producto'  [(ngModel)]="price" inputmode="decimal"></ion-input>
-        <ion-input type="number" placeholder='Porcentaje quita' [(ngModel)]="descuento" inputmode="decimal"></ion-input>
-        <ion-input type="number" placeholder='Producto x Combo' [(ngModel)]="cantProductus" inputmode="decimal"></ion-input>
-        <ion-input type="number" placeholder='Combos' [(ngModel)]="cantCombos" inputmode="decimal"></ion-input>
-    </ion-segment>  
-    <ion-item-group>
-        <ion-item-divider>
-            <ion-label>Descuentos</ion-label>
-        </ion-item-divider>
-        <ion-item>
-            <ion-label>
-                Valor Unitario Final: {{precioUnitario()| number : '.2-2'}}
-            </ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>
-                Ahorraste: {{ahorroTotal()| number : '.2-2'}}
-            </ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>
-                Total a Pagar: {{total()| number : '.2-2'}}
-            </ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-label>
-                Total sin descuento: {{totalSinDescuento()| number : '.2-2'}}
-            </ion-label>
-        </ion-item>
-    </ion-item-group>
+        <ion-card-header>
+            <ion-card-subtitle>Unidad</ion-card-subtitle>
+            <ion-card-title>{{precioUnitario()| number : '.2-2'}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-header>
+            <ion-card-subtitle>Total</ion-card-subtitle>
+            <ion-card-title>{{total()| number : '.2-2'}}</ion-card-title>
+        </ion-card-header>
+    </ion-segment>
+
+    <div>
+        <ion-chip color="success">
+            <ion-label>Ahorraste: {{ahorroTotal()| number : '.2-2'}}</ion-label>
+        </ion-chip>
+    </div>
+
     <ion-grid>
         <ion-row>
             <ion-col size="4"  *ngFor="let number of buttons">
                 <ion-button expand="block" (click)="addNumber(number)" >{{number}}</ion-button>
             </ion-col>
             <ion-col size="4">
-                <ion-button expand="block" (click)="deleteLastNumber()" color="danger"> Delete </ion-button>
+                <ion-button expand="block" (click)="deleteLastNumber()" color="danger"> Borrar </ion-button>
             </ion-col>
             <ion-col size="4">
-                <ion-button expand="block" (click)="clearInput()" color="warning"> Clear </ion-button>
+                <ion-button expand="block" (click)="clearInput()" color="warning"> Limpiar </ion-button>
             </ion-col>
         </ion-row>
     </ion-grid>
+
+    <div style="    position: fixed;bottom: 0px;width: 100%;">
+        <ion-item>
+            <ion-label>Descuento</ion-label>
+            <ion-select interface="popover" [value]="descuento" placeholder="De cuanto es el descuento ?" [(ngModel)]="descuento">
+                <ion-select-option value="30">30%</ion-select-option>
+                <ion-select-option value="40">40%</ion-select-option>
+                <ion-select-option value="50">50%</ion-select-option>
+                <ion-select-option value="60">60%</ion-select-option>
+                <ion-select-option value="70">70%</ion-select-option>
+                <ion-select-option value="80">80%</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Combos</ion-label>
+            <ion-select interface="popover" [value]="cantCombos" placeholder="Cuantos Combos vas a llevar ?" [(ngModel)]="cantCombos">
+                <ion-select-option value="1">1</ion-select-option>
+                <ion-select-option value="2">2</ion-select-option>
+                <ion-select-option value="3">3</ion-select-option>
+                <ion-select-option value="4">4</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <!-- <ion-item>
+            <ion-label position="floating">Combos</ion-label>
+            <ion-input type="number" placeholder='Combos' [(ngModel)]="cantCombos" inputmode="decimal"></ion-input>
+        </ion-item> -->
+    </div>
+   
 
 </ion-content>
