@@ -33,13 +33,14 @@ export class Tab1Page {
   // Funcion que elimina el ultimo numero del precio
   deleteLastNumber()
   {
-    this.price = this.price.substring(0, this.price.length - 1);
+    if (this.price.length > 1) this.price = this.price.substring(0, this.price.length - 1);
+    else this.clearInput();
   }
 
   // Funcion que limpia el input del precio del producto
   clearInput() : void
   {
-    this.price = '';
+    this.price = '0';
   }
 
   formatedPrice()
