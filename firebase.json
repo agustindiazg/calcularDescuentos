@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "www",
+    "site": "calculadoradedescuentos",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

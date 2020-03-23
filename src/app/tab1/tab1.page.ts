@@ -8,6 +8,7 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 })
 export class Tab1Page {
   buttons : number[];
+  descuentos : number[];
   price: string;
   descuento: number;
   cantCombos: number;
@@ -20,6 +21,8 @@ export class Tab1Page {
     this.price = '0';
     this.descuento = 70;
     this.buttons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    this.descuentos = [5, 10,20,30,40,50,60,70,80,90];
+
   }
 
   // Agrega el digito seleccionado a la calculadora

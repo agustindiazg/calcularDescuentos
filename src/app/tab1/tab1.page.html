@@ -31,12 +31,7 @@
         <ion-chip color="tertiary">
             <ion-label>Descuento</ion-label>
             <ion-select interface="popover" [(ngModel)]="descuento">
-                <ion-select-option value="30">30%</ion-select-option>
-                <ion-select-option value="40">40%</ion-select-option>
-                <ion-select-option value="50">50%</ion-select-option>
-                <ion-select-option value="60">60%</ion-select-option>
-                <ion-select-option value="70">70%</ion-select-option>
-                <ion-select-option value="80">80%</ion-select-option>
+                <ion-select-option *ngFor="let d of descuentos" [value]="d">{{d}}%</ion-select-option>
             </ion-select>
         </ion-chip>
     </div>

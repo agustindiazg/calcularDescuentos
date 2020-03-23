@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "sugar-please"
+  },
+  "targets": {
+    "sugar-please": {
+      "hosting": {
+        "calculadoradesuper": [
+          "adiaz-personal"
+        ]
+      }
+    }
+  }
+}
