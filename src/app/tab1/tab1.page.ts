@@ -26,7 +26,7 @@ export class Tab1Page {
   }
 
   // Agrega el digito seleccionado a la calculadora
-  addNumber(val:number)
+  addNumber(val:any)
   {
     this.vibration.vibrate(1000);
     if (this.price == '0') this.price = val.toString();
